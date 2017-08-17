@@ -1,0 +1,29 @@
+{
+  "name": "pizdos",
+  "version": "0.1.0",
+  "description": "The stupid-simple library/utility for DoS.",
+  "main": "./index.js",
+  "bin": "./bin/pizdos.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flurescein/pizdos.git"
+  },
+  "keywords": [
+    "DoS",
+    "library",
+    "utility",
+    "simple"
+  ],
+  "author": "flurescein",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/flurescein/pizdos/issues"
+  },
+  "homepage": "https://github.com/flurescein/pizdos#readme",
+  "dependencies": {
+    "request": "^2.81.0"
+  }
+}
