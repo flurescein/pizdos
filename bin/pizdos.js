@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const pizdos = require('../src/pizdos')
+const pizdos = require(__dirname + '/../src/pizdos')
 
 let options = {
     "attackDuration": process.argv[3],

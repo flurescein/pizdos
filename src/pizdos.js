@@ -11,7 +11,7 @@ class Pizdos {
      * @param {Object} options 
      */
     static attack(url, options) {
-        fs.readFile('./config/standart-options.json',
+        fs.readFile(__dirname + '/../config/standart-options.json',
                     'utf8',
                     (err, data) => {
             if (err) throw err
@@ -36,7 +36,7 @@ class Pizdos {
     static startAttackProcesses(url, processesCount, duration, frequency) {
         console.log('Attack is started.')
         for (let i = 1; i <= processesCount; i++) {
-            cp.fork('./src/dos_worker', [url, duration, frequency, i])
+            cp.fork(__dirname + '/dos_worker', [url, duration, frequency, i])
             console.log(`${i} process is started.`)
         }
     }
