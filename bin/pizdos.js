@@ -1,9 +1,13 @@
 #!/usr/bin/env node
 const pizdos = require(__dirname + '/../src/pizdos')
 
+if (!process.argv[2]) {
+    throw 'url is missing.'
+}
+
 let options = {
-    "attackDuration": process.argv[3],
-    "requestsFrequency": process.argv[4]  
+    'duration': process.argv[3],
+    'frequency': process.argv[4]  
 }
 
 for (parameter in options) {
