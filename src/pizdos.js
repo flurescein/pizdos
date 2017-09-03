@@ -16,6 +16,12 @@ class Pizdos {
                     'utf8',
                     (error, data) => {
             if (error) throw error
+            
+            for (parameter in options) {
+                if (isNaN(Number(options[parameter]))) {
+                    throw `Parameter ${parameter} is incorrect.`
+                }
+            }
 
             this.startAttack(url, Object.assign(JSON.parse(data), options))
         })
