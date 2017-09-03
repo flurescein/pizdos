@@ -1,6 +1,6 @@
 {
   "name": "pizdos",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "The stupid-simple library/utility for DoS.",
   "main": "./src/pizdos.js",
   "bin": "./bin/pizdos.js",
@@ -23,5 +23,7 @@
     "url": "https://github.com/flurescein/pizdos/issues"
   },
   "homepage": "https://github.com/flurescein/pizdos#readme",
-  "dependencies": {}
+  "dependencies": {
+    "request": "^2.81.0"
+  }
 }

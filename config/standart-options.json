@@ -1,4 +1,5 @@
 {
     "attackDuration": 60000,
-    "processesCount": 100
+    "processesCount": 100,
+    "requestsFrequency": 1
 }
