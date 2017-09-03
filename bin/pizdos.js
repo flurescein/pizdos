@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const pizdos = require('../src/pizdos')
 
 let options = {
