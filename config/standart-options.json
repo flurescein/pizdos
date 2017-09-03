@@ -1,4 +1,4 @@
 {
-    "attackDuration": 60000,
-    "requestsFrequency": 100
+    "duration": 60000,
+    "frequency": 100
 }
