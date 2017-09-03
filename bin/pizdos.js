@@ -3,8 +3,7 @@ const pizdos = require(__dirname + '/../src/pizdos')
 
 let options = {
     "attackDuration": process.argv[3],
-    "processesCount": process.argv[4],
-    "requestsFrequency": process.argv[5]  
+    "requestsFrequency": process.argv[4]  
 }
 
 for (parameter in options) {
