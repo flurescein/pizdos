@@ -13,14 +13,13 @@ pizdos.attack('https://google.com', { attackDuration: 100000 })
 ```
 {
     "attackDuration": 60000,
-    "processesCount": 10,
-    "requestsFrequency": 1
+    "requestsFrequency": 100
 }
 ```
 You can change any parameters by passing your object to the `attack` method.
 ### Utility-way
 1. Install it using command `npm i pizdos -g`.
-2. Start attack using command `pizdos *url* *attackDuration* *processesCount* *requestsFrequency*`
+2. Start attack using command `pizdos *url* *attackDuration* *requestsFrequency*`
 3. ???
 4. PROFIT
 

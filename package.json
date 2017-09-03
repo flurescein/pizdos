@@ -1,6 +1,6 @@
 {
   "name": "pizdos",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The stupid-simple library/utility for DoS.",
   "main": "./src/pizdos.js",
   "bin": "./bin/pizdos.js",
