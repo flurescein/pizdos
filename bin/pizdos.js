@@ -1,2 +1,15 @@
 const pizdos = require('../src/pizdos')
-pizdos.attack('https://fluresce.in', {attackDuration: 1})
+
+let options = {
+    "attackDuration": process.argv[3],
+    "processesCount": process.argv[4],
+    "requestsFrequency": process.argv[5]  
+}
+
+for (parameter in options) {
+    if (!options[parameter]) {
+        delete options[parameter]
+    }
+}
+
+pizdos.attack(process.argv[2], options)

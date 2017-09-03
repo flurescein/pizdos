@@ -1,7 +1,7 @@
 const request = require('request')
 
 setInterval(() => {
-    request(process.argv[2], () => console.log('smth'))
+    request(process.argv[2])
 }, process.argv[4])
 
 setTimeout(() => {
