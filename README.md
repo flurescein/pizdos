@@ -1,7 +1,7 @@
 # pizdos
 The stupid-simple library/utility for DoS.
-## Using.
-### Library-way.
+## Using
+### Library-way
 Require it and use `attack` method.
 It takes 2 arguments: `url` and `options`.
 For example:
@@ -18,7 +18,7 @@ pizdos.attack('https://google.com', { attackDuration: 100000 })
 }
 ```
 You can change any parameters by passing your object to the `attack` method.
-### Utility-way.
+### Utility-way
 1. Install it using command `npm i pizdos -g`.
 2. Start attack using command `pizdos *url* *attackDuration* *processesCount* *requestsFrequency*`
 3. ???
