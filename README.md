@@ -9,10 +9,11 @@ const pizdos = require('pizdos')
 pizdos.attack('https://google.com', { duration: 100000 })
 ```
 `options` is an object with attack parameters. By default it looks like this:
-```json
+```js
 {
-    "duration": 60000,
-    "frequency": 100
+    duration: 60000, // How long will the attack last.
+    frequency: 100,  // How often will requests be sent.
+    log: console.log // Function for displaying information about the attack.
 }
 ```
 You can change any parameters by passing your object to the `attack` method.
