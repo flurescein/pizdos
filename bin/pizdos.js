@@ -6,8 +6,8 @@ if (!process.argv[2]) {
 }
 
 let options = {
-    'duration': process.argv[3],
-    'frequency': process.argv[4]  
+    duration: process.argv[3],
+    frequency: process.argv[4]
 }
 
 for (parameter in options) {
