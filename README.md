@@ -4,15 +4,16 @@ The stupid-simple library/utility for DoS.
 ### Library-way
 Require pizdos and use `attack` method. It takes 2 arguments: `url` and `options`.
 For example:
-```
+```js
 const pizdos = require('pizdos')
 pizdos.attack('https://google.com', { duration: 100000 })
 ```
 `options` is an object with attack parameters. By default it looks like this:
-```
+```js
 {
-    "duration": 60000,
-    "frequency": 100
+    duration: 60000, // How long will the attack last.
+    frequency: 100,  // How often will requests be sent.
+    log: console.log // Function for displaying information about the attack.
 }
 ```
 You can change any parameters by passing your object to the `attack` method.
