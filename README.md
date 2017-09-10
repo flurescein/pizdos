@@ -12,7 +12,7 @@ pizdos.attack('https://google.com', { duration: 100000 })
 ```js
 {
     duration: 60000, // How long will the attack last (milliseconds).
-    frequency: 100,  // How often will requests be sent (request / milliseconds).
+    frequency: 100,  // How often will requests be sent (milliseconds between requests).
     log: console.log // Function for displaying information about the attack.
 }
 ```
