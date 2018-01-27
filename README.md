@@ -11,8 +11,8 @@ pizdos.attack('https://google.com', { duration: 100000 })
 `options` is an object with attack parameters. By default it looks like this:
 ```js
 {
-    duration: 60000, // How long will the attack last.
-    frequency: 100,  // How often will requests be sent.
+    duration: 60000, // How long will the attack last (milliseconds).
+    frequency: 100,  // How often will requests be sent (milliseconds between requests).
     log: console.log // Function for displaying information about the attack.
 }
 ```
