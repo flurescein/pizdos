@@ -1,9 +1,6 @@
-// ---------------------------- Imports. ---------------------------------
 const request = require('request')
 
-// --------------------------- Main class. -------------------------------
 module.exports = class Pizdos {
-    // Public.
     /**
      * Starts attack on url using options.
      * @param {string} url 
@@ -27,7 +24,6 @@ module.exports = class Pizdos {
         }, options.duration)
     }
 
-    // Private.
     /**
      * Constant with standard options.
      * @private
