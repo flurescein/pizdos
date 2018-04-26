@@ -1,8 +1,9 @@
 #!/usr/bin/env node
+
 const pizdos = require(__dirname + '/../src/pizdos')
 
 if (!process.argv[2]) {
-    throw 'url is missing.'
+    throw 'URL is missing.'
 }
 
 let options = {
