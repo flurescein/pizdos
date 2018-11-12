@@ -1,12 +1,9 @@
 {
   "name": "pizdos",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "The stupid-simple library/utility for DoS.",
   "main": "./src/pizdos.js",
   "bin": "./bin/pizdos.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flurescein/pizdos.git"
